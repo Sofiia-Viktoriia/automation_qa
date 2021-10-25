@@ -8,18 +8,13 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ItemPage {
-
-    WebDriver driver;
-    WebDriverWait waiter;
+public class ItemPage extends BasePage {
 
     private By imageContainer = By.className("picture-container__picture");
     private By statusLabel = By.xpath("//rz-status-label/p");
 
     public ItemPage(WebDriver driver) {
-        this.driver = driver;
-        this.waiter = new WebDriverWait(this.driver, 10);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     public void checkItemAvailability() {

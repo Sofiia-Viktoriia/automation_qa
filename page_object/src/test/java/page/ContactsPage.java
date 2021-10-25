@@ -12,10 +12,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class ContactsPage {
-
-    WebDriver driver;
-    WebDriverWait waiter;
+public class ContactsPage extends BasePage {
 
     @FindBy(tagName = "rz-map")
     private WebElement map;
@@ -23,9 +20,7 @@ public class ContactsPage {
     private List<WebElement> mainContacts;
 
     public ContactsPage(WebDriver driver) {
-        this.driver = driver;
-        this.waiter = new WebDriverWait(this.driver, 10);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     public void checkContactsPresence() {

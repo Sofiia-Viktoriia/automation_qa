@@ -13,10 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class SearchItemPage {
-
-    WebDriver driver;
-    WebDriverWait waiter;
+public class SearchItemPage extends BasePage {
 
     private By itemImage = By.xpath("//rz-grid/ul/li[1]/app-goods-tile-default/div/div/a/img");
     @FindBy(xpath = "//h1[@class='catalog-heading ng-star-inserted']")
@@ -24,9 +21,7 @@ public class SearchItemPage {
     private By logoImage = By.cssSelector("body > app-root > div > div > rz-header > header > div > div > a > picture > img");
 
     public SearchItemPage(WebDriver driver) {
-        this.driver = driver;
-        this.waiter = new WebDriverWait(this.driver, 10);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     public void checkTitle(String title) {

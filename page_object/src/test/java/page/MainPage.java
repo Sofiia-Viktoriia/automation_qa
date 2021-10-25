@@ -13,10 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class MainPage {
-
-    WebDriver driver;
-    WebDriverWait waiter;
+public class MainPage extends BasePage {
 
     private String authPasswordInputId = "auth_pass";
     private By authEmailInput = By.xpath("//input[@id='auth_email']");
@@ -50,9 +47,7 @@ public class MainPage {
     private WebElement firstItemLink;
 
     public MainPage(WebDriver driver) {
-        this.driver = driver;
-        this.waiter = new WebDriverWait(this.driver, 10);
-        PageFactory.initElements(this.driver, this);
+        super(driver);
     }
 
     public void openPage() {
